@@ -8,7 +8,7 @@ import { formatINR, useCart } from "@/hooks/useCart";
 import { Zap, ShoppingCart, Tag, RefreshCw, Truck } from "lucide-react";
 
 export const Route = createFileRoute("/product/$id")({
-  loader: ({ params }) => {
+  loader: ({ params }): import("@/data/mockProducts").Product => {
     const p = products.find((x) => x.id === params.id);
     if (!p) throw notFound();
     return p;
