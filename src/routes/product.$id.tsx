@@ -35,7 +35,7 @@ export const Route = createFileRoute("/product/$id")({
 });
 
 function ProductPage() {
-  const p = Route.useLoaderData();
+  const p = Route.useLoaderData() as import("@/data/mockProducts").Product;
   const { add } = useCart();
   const nav = useNavigate();
   const pct = Math.round(((p.mrp - p.price) / p.mrp) * 100);
